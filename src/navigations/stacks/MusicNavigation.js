@@ -1,11 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  RadioScreen,
-  FavoritesScreen,
-  SearchScreen,
-} from "../../screens/Music";
-import { screens } from "../../utils";
-import { styles } from "../Styles.styles";
+import { SearchScreen } from "../../screens/Music";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,23 +7,15 @@ export function MusicNavigation() {
   return (
     <Stack.Navigator
       screenOptions={{
-        ...styles.stackNavigationStyles,
+        headerStyle: { backgroundColor: '#000' },
+        headerTintColor: '#fff',
+        contentStyle: { backgroundColor: '#000' },
       }}
     >
       <Stack.Screen
-        name={screens.tab.music.radioScreen}
-        component={RadioScreen}
-        options={{ title: "Radio" }}
-      />
-      <Stack.Screen
-        name={screens.tab.music.favoritesScreen}
-        component={FavoritesScreen}
-        options={{ title: "Favoritos" }}
-      />
-      <Stack.Screen
-        name={screens.tab.music.searchScreen}
+        name="SearchScreen"
         component={SearchScreen}
-        options={{ title: "Buscar" }}
+        options={{ title: "Buscar Música" }}
       />
     </Stack.Navigator>
   );
